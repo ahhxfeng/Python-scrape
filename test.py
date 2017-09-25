@@ -31,7 +31,7 @@ def download_retry(url, num_retries):
 #设置用户代理
 def download_proxy(url, user_agent, num_retries):
     print('downloading:', url)
-    headers = {'User_agent:', user_agent}
+    headers = {'User_agent': user_agent}
     request = urllib.request.Request(url, headers = headers)
     try:
         html = urllib.request.urlopen(url).read()
@@ -42,6 +42,9 @@ def download_proxy(url, user_agent, num_retries):
             if hasattr(e, 'code') and 500 <= e.code < 600:
                 return download_proxy(url, user_agent, num_retries - 1)
     return html
-html = download_proxy('http://www.baidu.com', 'wswp', 3)
+#html = download_proxy('http://www.baidu.com', 'wswp', 3)
+
+#网站地图爬虫
+
 print(html)
 
